@@ -14,6 +14,7 @@
 		C4D0704B20166CE20046107A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D0704920166CE20046107A /* LaunchScreen.storyboard */; };
 		C4D0705620166CE20046107A /* Star_Wars_EncyclopediaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0705520166CE20046107A /* Star_Wars_EncyclopediaTests.swift */; };
 		C4D0706120166CE30046107A /* Star_Wars_EncyclopediaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0706020166CE30046107A /* Star_Wars_EncyclopediaUITests.swift */; };
+		C4D0706F20169EC20046107A /* FilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0706E20169EC20046107A /* FilmsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C4D0705C20166CE20046107A /* Star Wars EncyclopediaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Star Wars EncyclopediaUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D0706020166CE30046107A /* Star_Wars_EncyclopediaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Star_Wars_EncyclopediaUITests.swift; sourceTree = "<group>"; };
 		C4D0706220166CE30046107A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4D0706E20169EC20046107A /* FilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				C4D0704020166CE20046107A /* AppDelegate.swift */,
 				C4D0704220166CE20046107A /* PeopleViewController.swift */,
 				C4D0704420166CE20046107A /* Main.storyboard */,
+				C4D0706E20169EC20046107A /* FilmsViewController.swift */,
 				C4D0704720166CE20046107A /* Assets.xcassets */,
 				C4D0704920166CE20046107A /* LaunchScreen.storyboard */,
 				C4D0704C20166CE20046107A /* Info.plist */,
@@ -259,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4D0706F20169EC20046107A /* FilmsViewController.swift in Sources */,
 				C4D0704320166CE20046107A /* PeopleViewController.swift in Sources */,
 				C4D0704120166CE20046107A /* AppDelegate.swift in Sources */,
 			);
