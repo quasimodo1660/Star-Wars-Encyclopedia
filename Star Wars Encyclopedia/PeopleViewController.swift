@@ -9,7 +9,7 @@
 import UIKit
 
 class PeopleViewController: UITableViewController {
-    var people = [String]()
+    var people = [NSDictionary]()
     override func viewDidLoad() {
         super.viewDidLoad()
         StarWarsModel.getAllPeople(completionHandler: { // passing what becomes "completionHandler" in the 'getAllPeople' function definition in StarWarsModel.swift
@@ -20,7 +20,7 @@ class PeopleViewController: UITableViewController {
                     if let results = jsonResult["results"] as? NSArray {
                         for person in results {
                             let personDict = person as! NSDictionary
-                            self.people.append(personDict["name"]! as! String)
+                            self.people.append(personDict)
                         }
                     }
                 }
@@ -45,11 +45,25 @@ class PeopleViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create a generic cell
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath)
         // set the default cell label to the corresponding element in the people array
-        cell.textLabel?.text = people[indexPath.row]
+        cell.textLabel?.text = people[indexPath.row]["name"] as? String
         // return the cell so that it can be rendered
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "personSegue"{
+            print("here")
+            let detail = segue.destination as! detailsViewController
+            if let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell){
+                detail.label1 = "Name: \(String(describing: people[indexPath.row]["name"]!))"
+                detail.label2 = "Gender: \(String(describing: people[indexPath.row]["gender"]!))"
+                detail.label3 = "Birth Year: \(String(describing: people[indexPath.row]["birth_year"]!))"
+                detail.label4 = "Mass: \(String(describing: people[indexPath.row]["mass"]!))"
+            }
+        }
+        
     }
 }
 

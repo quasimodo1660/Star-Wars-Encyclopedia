@@ -9,7 +9,7 @@
 import UIKit
 
 class FilmsViewController: UITableViewController {
-    var films = [String]()
+    var films = [NSDictionary]()
     override func viewDidLoad() {
         super.viewDidLoad()
         StarWarsModel.getAllFilms(completionHandler: { // passing what becomes "completionHandler" in the 'getAllPeople' function definition in StarWarsModel.swift
@@ -20,7 +20,7 @@ class FilmsViewController: UITableViewController {
                     if let results = jsonResult["results"] as? NSArray {
                         for person in results {
                             let personDict = person as! NSDictionary
-                            self.films.append(personDict["title"]! as! String)
+                            self.films.append(personDict)
                         }
                     }
                 }
@@ -45,11 +45,28 @@ class FilmsViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create a generic cell
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "filmCell", for: indexPath)
         // set the default cell label to the corresponding element in the people array
-        cell.textLabel?.text = films[indexPath.row]
+        cell.textLabel?.text = films[indexPath.row]["title"] as? String
         // return the cell so that it can be rendered
         return cell
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "filmSegue"{
+            print("here")
+            let detail = segue.destination as! detailsViewController
+            if let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell){
+                detail.label1 = "Title: \(String(describing: films[indexPath.row]["title"]!))"
+                detail.label2 = "Release Year: \(String(describing: films[indexPath.row]["release_date"]!))"
+                detail.label3 = "Director: \(String(describing: films[indexPath.row]["director"]!))"
+                detail.label4 = "Opening Crawl: \(String(describing: films[indexPath.row]["opening_crawl"]!))"
+            }
+        }
+        
+    }
+//    override func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+//        performSegue(withIdentifier: "filmSegue", sender: indexPath)
+//    }
+    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4AC46C62016C3B20029B7F9 /* detailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AC46C52016C3B20029B7F9 /* detailsViewController.swift */; };
 		C4D0704120166CE20046107A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0704020166CE20046107A /* AppDelegate.swift */; };
 		C4D0704320166CE20046107A /* PeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0704220166CE20046107A /* PeopleViewController.swift */; };
 		C4D0704620166CE20046107A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D0704420166CE20046107A /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C4AC46C52016C3B20029B7F9 /* detailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsViewController.swift; sourceTree = "<group>"; };
 		C4D0703D20166CE20046107A /* Star Wars Encyclopedia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Star Wars Encyclopedia.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D0704020166CE20046107A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4D0704220166CE20046107A /* PeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				C4D0704020166CE20046107A /* AppDelegate.swift */,
 				C4D0704220166CE20046107A /* PeopleViewController.swift */,
 				C4D0704420166CE20046107A /* Main.storyboard */,
+				C4AC46C52016C3B20029B7F9 /* detailsViewController.swift */,
 				C4D0706E20169EC20046107A /* FilmsViewController.swift */,
 				C4D070702016A4080046107A /* StarWarsModel.swift */,
 				C4D0704720166CE20046107A /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4AC46C62016C3B20029B7F9 /* detailsViewController.swift in Sources */,
 				C4D070712016A4080046107A /* StarWarsModel.swift in Sources */,
 				C4D0706F20169EC20046107A /* FilmsViewController.swift in Sources */,
 				C4D0704320166CE20046107A /* PeopleViewController.swift in Sources */,

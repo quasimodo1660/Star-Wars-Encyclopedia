@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class StarWarsModel{
     static func getAllPeople(completionHandler:@escaping (_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Void) {
@@ -30,3 +31,5 @@ class StarWarsModel{
         task.resume()
     }
 }
+
+
