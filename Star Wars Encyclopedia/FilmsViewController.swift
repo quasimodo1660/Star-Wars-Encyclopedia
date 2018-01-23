@@ -12,41 +12,25 @@ class FilmsViewController: UITableViewController {
     var films = [String]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        // specify the url that we will be sending the GET Request to
-        let url = URL(string: "http://swapi.co/api/films/")
-        // create a URLSession to handle the request tasks
-        let session = URLSession.shared
-        // create a "data task" to make the request and run the completion handler
-        let task = session.dataTask(with: url!, completionHandler: {
-            // see: Swift closure expression syntax
+        StarWarsModel.getAllFilms(completionHandler: { // passing what becomes "completionHandler" in the 'getAllPeople' function definition in StarWarsModel.swift
             data, response, error in
             do {
-                // try converting the JSON object to "Foundation Types" (NSDictionary, NSArray, NSString, etc.)
+                // Try converting the JSON object to "Foundation Types" (NSDictionary, NSArray, NSString, etc.)
                 if let jsonResult = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary {
-                    if let nextPages = jsonResult["next"]{
-                        print(type(of:nextPages))
-                    }
-                    if let results = jsonResult["results"] {
-                        let resultsArray = results as! NSArray
-                        for reuslt in resultsArray{
-                            let person = reuslt as! NSDictionary
-                            self.films.append(person["title"] as! String)
-                        }
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
+                    if let results = jsonResult["results"] as? NSArray {
+                        for person in results {
+                            let personDict = person as! NSDictionary
+                            self.films.append(personDict["title"]! as! String)
                         }
                     }
                 }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
             } catch {
-                print(error)
+                print("Something went wrong")
             }
         })
-        
-        // execute the task and wait for the response before
-        // running the completion handler. This is async!
-        task.resume()
-        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
