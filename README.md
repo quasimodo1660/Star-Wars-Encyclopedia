@@ -75,3 +75,18 @@ Now implement the same organization for the FilmViewController.
 
 Create a StarWarsModel.getAllFilms method similar to the getAllPeople method we created above.
 Modify the code on FilmViewController so that it leverages the getAllFilms method.
+
+
+Final Steps
+Now that we have our data let's take it one step further and add the ability to view details for a particular film or person. 
+
+Add a details view for the people resource with the following details about each Star Wars Person:
+
+Name, Gender, Birth Year, Mass
+Add a details view for the films resource with the following details about each Star Wars Film:
+
+Title, Release Date, Director, Opening Crawl
+These do not need to be Table View Controllers (They can be vanilla view controllers with Labels)
+
+Hacker Level
+Add Species to the Star Wars Person details view
