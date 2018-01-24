@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--People View Controller-->
+        <!--People-->
         <scene sceneID="mDQ-sj-tAD">
             <objects>
                 <tableViewController id="lLf-zT-2fd" customClass="PeopleViewController" customModule="Star_Wars_Encyclopedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,7 +96,7 @@
                             <outlet property="delegate" destination="lLf-zT-2fd" id="zG8-U1-No6"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="uKt-c0-9C4"/>
+                    <navigationItem key="navigationItem" title="People" id="uKt-c0-9C4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTL-bc-Np8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,14 +115,14 @@
                     <connections>
                         <segue destination="HYA-qQ-Jgs" kind="relationship" relationship="viewControllers" id="C5u-Cw-7MK"/>
                         <segue destination="qGa-fT-th4" kind="relationship" relationship="viewControllers" id="XiU-mb-GLN"/>
-                        <segue destination="Xvb-dM-Mhf" kind="relationship" relationship="viewControllers" id="hTi-Ja-Irq"/>
+                        <segue destination="N3d-Op-S1Z" kind="relationship" relationship="viewControllers" id="hTi-Ja-Irq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uWi-84-hl0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="111.2" y="61.619190404797607"/>
         </scene>
-        <!--Films View Controller-->
+        <!--Films-->
         <scene sceneID="8OV-7F-uJ7">
             <objects>
                 <tableViewController id="f9x-oC-1kx" customClass="FilmsViewController" customModule="Star_Wars_Encyclopedia" customModuleProvider="target" sceneMemberID="viewController">
@@ -147,11 +148,11 @@
                             <outlet property="delegate" destination="f9x-oC-1kx" id="7Qt-ML-IWj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="xTO-0u-WIY"/>
+                    <navigationItem key="navigationItem" title="Films" id="xTO-0u-WIY"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pt3-ns-grm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="878.41079460269873"/>
+            <point key="canvasLocation" x="1215.2" y="878.41079460269873"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="wia-qC-s0Y">
@@ -213,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hvq-Ug-5cb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1776.8" y="879.31034482758628"/>
+            <point key="canvasLocation" x="2116" y="879.31034482758628"/>
         </scene>
         <!--People-->
         <scene sceneID="zUP-iR-Sb5">
@@ -234,10 +235,10 @@
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="60.719640179910051"/>
         </scene>
-        <!--blet-->
+        <!--To Do List-->
         <scene sceneID="mXO-a6-zwT">
             <objects>
-                <tableViewController id="Xvb-dM-Mhf" customClass="thirdTableViewController" customModule="Star_Wars_Encyclopedia" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="To Do List" id="Xvb-dM-Mhf" customClass="thirdTableViewController" customModule="Star_Wars_Encyclopedia" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4xI-zR-AcO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -257,12 +258,81 @@
                             <outlet property="delegate" destination="Xvb-dM-Mhf" id="JgP-Ng-BC6"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="blet" id="fPD-x8-mJR"/>
-                    <navigationItem key="navigationItem" id="jiQ-fx-rbk"/>
+                    <navigationItem key="navigationItem" title="To Do List" id="jiQ-fx-rbk">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zDa-Cu-zMh">
+                            <connections>
+                                <segue destination="UMo-KZ-Vo4" kind="presentation" identifier="addItem" id="4Ou-8C-uws"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDW-fT-vMB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-804" y="904"/>
+            <point key="canvasLocation" x="-791" y="880"/>
+        </scene>
+        <!--Add Item-->
+        <scene sceneID="73B-HH-KTP">
+            <objects>
+                <viewController id="Dn4-A3-2zV" customClass="AddItemViewController" customModule="Star_Wars_Encyclopedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dzj-fe-EtW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nla-Rh-nLa">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H7N-0Q-Ep4">
+                                <rect key="frame" x="20" y="124" width="335" height="211"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="kF1-sN-E34">
+                                <rect key="frame" x="20" y="340" width="335" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="538459546.69815195">
+                                    <!--2018-01-24 04:05:46 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nla-Rh-nLa" firstAttribute="top" secondItem="Yoq-xs-pz4" secondAttribute="top" constant="20" id="9hX-eR-C9z"/>
+                            <constraint firstItem="Yoq-xs-pz4" firstAttribute="trailing" secondItem="H7N-0Q-Ep4" secondAttribute="trailing" constant="20" id="Mp1-ci-etc"/>
+                            <constraint firstItem="kF1-sN-E34" firstAttribute="top" secondItem="H7N-0Q-Ep4" secondAttribute="bottom" constant="5" id="N7v-iq-tyG"/>
+                            <constraint firstItem="Yoq-xs-pz4" firstAttribute="trailing" secondItem="Nla-Rh-nLa" secondAttribute="trailing" constant="20" id="QxO-JZ-DSs"/>
+                            <constraint firstAttribute="trailing" secondItem="kF1-sN-E34" secondAttribute="trailing" constant="20" id="R0G-Tj-qkw"/>
+                            <constraint firstItem="Nla-Rh-nLa" firstAttribute="leading" secondItem="Yoq-xs-pz4" secondAttribute="leading" constant="20" id="aP7-2y-Ivj"/>
+                            <constraint firstItem="H7N-0Q-Ep4" firstAttribute="leading" secondItem="Yoq-xs-pz4" secondAttribute="leading" constant="20" id="aWH-w7-Cl8"/>
+                            <constraint firstItem="H7N-0Q-Ep4" firstAttribute="top" secondItem="Nla-Rh-nLa" secondAttribute="bottom" constant="10" id="dMG-uN-fts"/>
+                            <constraint firstItem="H7N-0Q-Ep4" firstAttribute="height" secondItem="Yoq-xs-pz4" secondAttribute="height" multiplier="0.35" id="eqN-j8-faa"/>
+                            <constraint firstItem="kF1-sN-E34" firstAttribute="leading" secondItem="Yoq-xs-pz4" secondAttribute="leading" constant="20" id="xJX-cx-Pan"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yoq-xs-pz4"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Item" id="fc7-fh-exM">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xpo-mx-Xcw">
+                            <connections>
+                                <action selector="buttonPressed:" destination="Dn4-A3-2zV" id="X8H-KV-d4J"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" tag="1" systemItem="save" id="Z3k-8q-BES">
+                            <connections>
+                                <action selector="buttonPressed:" destination="Dn4-A3-2zV" id="DSS-WB-8Qc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="beginDate" destination="kF1-sN-E34" id="tgC-gB-ZFR"/>
+                        <outlet property="contentLabel" destination="H7N-0Q-Ep4" id="183-ft-96w"/>
+                        <outlet property="titleLabel" destination="Nla-Rh-nLa" id="Omf-9J-WBZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWs-ak-Tsj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="110" y="1627"/>
         </scene>
         <!--Films-->
         <scene sceneID="FiH-XC-xRt">
@@ -281,10 +351,47 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8ir-15-gi6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109.59999999999999" y="880.20989505247383"/>
+            <point key="canvasLocation" x="111" y="879"/>
+        </scene>
+        <!--blet-->
+        <scene sceneID="uat-1B-LY7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N3d-Op-S1Z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="blet" id="fPD-x8-mJR"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JfV-Mv-f0c">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Xvb-dM-Mhf" kind="relationship" relationship="rootViewController" id="A8X-ym-I2l"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8u-gY-XAD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-790" y="62"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sZ1-0a-To8">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UMo-KZ-Vo4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kM6-mO-XJM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Dn4-A3-2zV" kind="relationship" relationship="rootViewController" id="jVF-LL-dl1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1B3-Ge-UhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-792" y="1627.2863568215894"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DZc-vx-24t"/>
+        <segue reference="wt7-Sa-Cwg"/>
     </inferredMetricsTieBreakers>
 </document>

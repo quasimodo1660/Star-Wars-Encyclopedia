@@ -18,6 +18,8 @@
 		C4D0706F20169EC20046107A /* FilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D0706E20169EC20046107A /* FilmsViewController.swift */; };
 		C4D070712016A4080046107A /* StarWarsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D070702016A4080046107A /* StarWarsModel.swift */; };
 		C4EA43F7201813AC00764FBD /* thirdTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EA43F6201813AC00764FBD /* thirdTableViewController.swift */; };
+		C4EA43F920183AC000764FBD /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EA43F820183AC000764FBD /* AddItemViewController.swift */; };
+		C4EA43FC2018421400764FBD /* Star Wars Encyclopedia.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C4EA43FA2018421400764FBD /* Star Wars Encyclopedia.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		C4D0706E20169EC20046107A /* FilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmsViewController.swift; sourceTree = "<group>"; };
 		C4D070702016A4080046107A /* StarWarsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarWarsModel.swift; sourceTree = "<group>"; };
 		C4EA43F6201813AC00764FBD /* thirdTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdTableViewController.swift; sourceTree = "<group>"; };
+		C4EA43F820183AC000764FBD /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
+		C4EA43FB2018421400764FBD /* Star Wars Encyclopedia.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Star Wars Encyclopedia.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,10 +115,12 @@
 				C4D0704420166CE20046107A /* Main.storyboard */,
 				C4AC46C52016C3B20029B7F9 /* detailsViewController.swift */,
 				C4D0706E20169EC20046107A /* FilmsViewController.swift */,
+				C4EA43F820183AC000764FBD /* AddItemViewController.swift */,
 				C4D070702016A4080046107A /* StarWarsModel.swift */,
 				C4D0704720166CE20046107A /* Assets.xcassets */,
 				C4D0704920166CE20046107A /* LaunchScreen.storyboard */,
 				C4D0704C20166CE20046107A /* Info.plist */,
+				C4EA43FA2018421400764FBD /* Star Wars Encyclopedia.xcdatamodeld */,
 			);
 			path = "Star Wars Encyclopedia";
 			sourceTree = "<group>";
@@ -273,8 +279,10 @@
 			files = (
 				C4AC46C62016C3B20029B7F9 /* detailsViewController.swift in Sources */,
 				C4EA43F7201813AC00764FBD /* thirdTableViewController.swift in Sources */,
+				C4EA43FC2018421400764FBD /* Star Wars Encyclopedia.xcdatamodeld in Sources */,
 				C4D070712016A4080046107A /* StarWarsModel.swift in Sources */,
 				C4D0706F20169EC20046107A /* FilmsViewController.swift in Sources */,
+				C4EA43F920183AC000764FBD /* AddItemViewController.swift in Sources */,
 				C4D0704320166CE20046107A /* PeopleViewController.swift in Sources */,
 				C4D0704120166CE20046107A /* AppDelegate.swift in Sources */,
 			);
@@ -574,6 +582,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C4EA43FA2018421400764FBD /* Star Wars Encyclopedia.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C4EA43FB2018421400764FBD /* Star Wars Encyclopedia.xcdatamodel */,
+			);
+			currentVersion = C4EA43FB2018421400764FBD /* Star Wars Encyclopedia.xcdatamodel */;
+			path = "Star Wars Encyclopedia.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C4D0703520166CE20046107A /* Project object */;
 }

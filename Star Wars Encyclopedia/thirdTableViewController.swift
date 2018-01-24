@@ -7,12 +7,40 @@
 //
 
 import UIKit
+import CoreData
 
-class thirdTableViewController: UITableViewController {
+class thirdTableViewController: UITableViewController,addItemDelegate {
+    func addItem(_ controller: AddItemViewController, with toDoTitle: String, _ content: String, and beginDate: Date, by sender: UIBarButtonItem) {
+        if sender.tag == 0{
+            dismiss(animated: true, completion: nil)
+        }
+        else{
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addItem"{
+            let navi = segue.destination as! UINavigationController
+            let target = navi.topViewController as! AddItemViewController
+            target.delegate = self
+        }
+        
+    }
+   
+   
+    
+    
+    var items = [Todolist]()
 
+    let manageDatabase = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchAllItems()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -36,6 +64,19 @@ class thirdTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
+    
+    
+    func fetchAllItems(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Todolist")
+        do{
+            let result = try manageDatabase.fetch(request)
+            items = result as! [Todolist]
+        }
+        catch{
+            print("\(error)")
+        }
+    }
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
