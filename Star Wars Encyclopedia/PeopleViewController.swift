@@ -83,7 +83,7 @@ class PeopleViewController: UITableViewController ,switchDelegate{
             if indexPath.row == 0{
                 cell2 = (tableView.dequeueReusableCell(withIdentifier: "CustomCell") as! CustomCell)
                 cell2?.delegate = self
-                cell2?.textLabel?.text = "Test"
+                cell2?.textLabel?.text = "This switch is on!"
                 return cell2!
             }
             else{
@@ -115,10 +115,11 @@ class PeopleViewController: UITableViewController ,switchDelegate{
     func change(_ sender: CustomCell, with item: UISwitch) {
         print("here")
         if item .isOn{
-            sender.backgroundColor = UIColor.clear
+            sender.textLabel?.text = "This switch is on!"
             sender.textLabel?.textColor = UIColor.black
         }
         else{
+            sender.textLabel?.text = "This switch is off!"
             sender.textLabel?.textColor = UIColor.red
         }
     }
