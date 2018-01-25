@@ -130,7 +130,59 @@
                     <view key="view" contentMode="scaleToFill" id="V1Y-FL-VW6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x1u-0a-5cs">
+                                <rect key="frame" x="24" y="80" width="327" height="30"/>
+                                <state key="normal" title="All Animals"/>
+                                <connections>
+                                    <action selector="showAllButton:" destination="GWL-Ol-cDx" eventType="touchUpInside" id="k4d-t1-wWh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k1R-qY-Asa">
+                                <rect key="frame" x="24" y="126" width="327" height="30"/>
+                                <state key="normal" title="Male"/>
+                                <connections>
+                                    <action selector="filterButton:" destination="GWL-Ol-cDx" eventType="touchUpInside" id="ptl-ts-Fcn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkC-P7-q6G">
+                                <rect key="frame" x="24" y="171" width="327" height="30"/>
+                                <state key="normal" title="Female"/>
+                                <connections>
+                                    <action selector="filterButton:" destination="GWL-Ol-cDx" eventType="touchUpInside" id="bPV-aF-bst"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IcY-jT-PHj">
+                                <rect key="frame" x="0.0" y="209" width="375" height="409"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ACell" id="XfY-GP-LDI">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XfY-GP-LDI" id="2tp-Tu-Eqx">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IcY-jT-PHj" firstAttribute="top" secondItem="TkC-P7-q6G" secondAttribute="bottom" constant="8" id="0tZ-yf-nl5"/>
+                            <constraint firstItem="x1u-0a-5cs" firstAttribute="leading" secondItem="idE-Ne-AHe" secondAttribute="leading" constant="24" id="5co-xN-pdT"/>
+                            <constraint firstItem="IcY-jT-PHj" firstAttribute="bottom" secondItem="idE-Ne-AHe" secondAttribute="bottom" id="LnS-ep-iCB"/>
+                            <constraint firstItem="IcY-jT-PHj" firstAttribute="trailing" secondItem="idE-Ne-AHe" secondAttribute="trailing" id="Mzi-Wk-7Pf"/>
+                            <constraint firstItem="idE-Ne-AHe" firstAttribute="trailing" secondItem="x1u-0a-5cs" secondAttribute="trailing" constant="24" id="Rxd-SH-xG3"/>
+                            <constraint firstItem="x1u-0a-5cs" firstAttribute="top" secondItem="idE-Ne-AHe" secondAttribute="top" constant="16" id="SGS-1d-5lo"/>
+                            <constraint firstItem="IcY-jT-PHj" firstAttribute="leading" secondItem="idE-Ne-AHe" secondAttribute="leading" id="VcO-U8-reh"/>
+                            <constraint firstItem="idE-Ne-AHe" firstAttribute="trailing" secondItem="TkC-P7-q6G" secondAttribute="trailing" constant="24" id="dVf-PM-07R"/>
+                            <constraint firstItem="k1R-qY-Asa" firstAttribute="leading" secondItem="idE-Ne-AHe" secondAttribute="leading" constant="24" id="nc4-rw-Qz7"/>
+                            <constraint firstItem="idE-Ne-AHe" firstAttribute="trailing" secondItem="k1R-qY-Asa" secondAttribute="trailing" constant="24" id="sOu-2F-wGL"/>
+                            <constraint firstItem="TkC-P7-q6G" firstAttribute="leading" secondItem="idE-Ne-AHe" secondAttribute="leading" constant="24" id="tOf-MY-Pr2"/>
+                            <constraint firstItem="k1R-qY-Asa" firstAttribute="top" secondItem="x1u-0a-5cs" secondAttribute="bottom" constant="16" id="y90-fT-5zK"/>
+                            <constraint firstItem="TkC-P7-q6G" firstAttribute="top" secondItem="k1R-qY-Asa" secondAttribute="bottom" constant="15" id="yDS-a1-JiJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="idE-Ne-AHe"/>
                     </view>
                     <navigationItem key="navigationItem" title="Animals" id="HsB-Yt-A6V">
@@ -140,10 +192,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="showTable" destination="IcY-jT-PHj" id="NU6-Oc-fgo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p5Q-Qt-7yh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="-2484"/>
+            <point key="canvasLocation" x="1128.8" y="-2484.1079460269866"/>
         </scene>
         <!--Add Animal-->
         <scene sceneID="h5n-e4-OAx">

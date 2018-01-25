@@ -7,13 +7,35 @@
 //
 
 import UIKit
+import CoreData
 
 class AnimalViewController: UIViewController,addAAnimal{
+    
+    var allAnimals = [Animals]()
+//    var male = [Animals]()
+//    var female = [Animals]()
+    
+    @IBOutlet weak var showTable: UITableView!
+    
+    let manageAnimalsDate = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     
     
     func addOne(_ controller: addAnimals, with name: String, and gender: String) {
-        <#code#>
+        print("zheli")
+        let animal = NSEntityDescription.insertNewObject(forEntityName: "Animals", into: manageAnimalsDate) as! Animals
+        animal.name = name
+        animal.gender = gender
+        allAnimals.append(animal)
+        do{
+            try manageAnimalsDate.save()
+        }
+        catch{
+            print("\(error)")
+        }
+        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
+        showTable.reloadData()
     }
     
     
@@ -25,21 +47,65 @@ class AnimalViewController: UIViewController,addAAnimal{
         
     }
     
-    
-    
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        fetchAllItems()
+        showTable.dataSource = self
+        showTable.delegate = self
+//        let animal = allAnimals.removeLast()
+//        manageAnimalsDate.delete(animal)
+//        do{
+//                        try manageAnimalsDate.save()
+//                    }
+//                    catch{
+//                        print("\(error)")
+//                    }
+//        print(allAnimals.count)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func fetchAllItems(){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Animals")
+        do{
+            let animals = try manageAnimalsDate.fetch(request)
+            allAnimals = animals as! [Animals]
+        }
+        catch{
+            print("\(error)")
+        }
+    }
+    
+    
+    func fetchByFilter(_ type:String){
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Animals")
+        request.predicate = NSPredicate(format: "gender == %@", type)
+        do{
+            let animals = try manageAnimalsDate.fetch(request)
+            allAnimals = animals as! [Animals]
+        }
+        catch{
+            print("\(error)")
+        }
+    }
+    
+    @IBAction func filterButton(_ sender: UIButton) {
+        print(sender.titleLabel!.text!)
+        fetchByFilter((sender.titleLabel!.text!))
+        showTable.reloadData()
+    }
+    
+    @IBAction func showAllButton(_ sender: Any) {
+        fetchAllItems()
+        showTable.reloadData()
+    }
+    
+    
+    
     
 
     /*
@@ -52,6 +118,21 @@ class AnimalViewController: UIViewController,addAAnimal{
     }
     */
 
+}
+
+
+extension AnimalViewController:UITableViewDataSource,UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return allAnimals.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ACell", for: indexPath)
+        cell.textLabel?.text = allAnimals[indexPath.row].name
+        return cell
+    }
+    
+    
 }
 
 class addAnimals: UIViewController {
