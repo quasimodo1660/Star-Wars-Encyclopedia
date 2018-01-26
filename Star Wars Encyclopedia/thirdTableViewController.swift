@@ -14,6 +14,9 @@ class thirdTableViewController: UITableViewController,addItemDelegate {
     var items = [Todolist]()
     var items2 = [Todolist]()
     
+    var temp = [Todolist]()
+    
+    
     
     
     
@@ -167,6 +170,22 @@ class thirdTableViewController: UITableViewController,addItemDelegate {
         }
         fetchAllItems()
         tableView.reloadData()
+    }
+    
+    
+    
+    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "addItem", sender: indexPath)
+//    }
+    
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let edit = UITableViewRowAction(style: .normal, title: "Edit"){(action,indexPath) in
+            self.performSegue(withIdentifier: "addItem", sender: indexPath)
+        }
+        return [edit]
     }
 
     /*

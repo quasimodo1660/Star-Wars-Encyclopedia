@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -436,11 +437,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="To Do List" id="jiQ-fx-rbk">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="zDa-Cu-zMh">
-                            <connections>
-                                <segue destination="UMo-KZ-Vo4" kind="presentation" identifier="addItem" id="4Ou-8C-uws"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="zDa-Cu-zMh">
+                                <connections>
+                                    <segue destination="UMo-KZ-Vo4" kind="presentation" identifier="addItem" id="4Ou-8C-uws"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Swith" id="OfF-Y2-8Z8"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDW-fT-vMB" userLabel="First Responder" sceneMemberID="firstResponder"/>
