@@ -9,15 +9,54 @@
 import UIKit
 import CoreData
 
-class thirdTableViewController: UITableViewController,addItemDelegate {
+class thirdTableViewController: UITableViewController,addItemDelegate,cellDelegate{
+    
+    
+    
+    func switchSection(_ sender: CCell) {
+        var item:Todolist?
+        let indexPath = tableView.indexPath(for: sender)! as NSIndexPath
+        if indexPath.section == 0{
+            item = items2[indexPath.row]
+        }
+        else{
+            item = items[indexPath.row]
+        }
+        if item?.finish == false{
+            item?.finish = true
+        }
+        else{
+            item?.finish = false
+        }
+        do{
+            try manageDatabase.save()
+        }
+        catch{
+            print("\(error)")
+        }
+        fetchAllItems()
+        tableView.reloadData()
+    }
+    
     
     var items = [Todolist]()
     var items2 = [Todolist]()
     
-    var temp = [Todolist]()
+  
     
     
-    
+    @IBAction func swichButtonPressed(_ sender: Any) {
+        var temp = [Todolist]()
+        print("items: \(items.count)")
+        print("items2: \(items2.count)")
+        
+        temp = items
+        items = items2
+        print("after swap items: \(items.count)")
+        items2 = temp
+        print("after swap items2: \(items2.count)")
+        tableView.reloadData()
+    }
     
     
     
@@ -36,7 +75,7 @@ class thirdTableViewController: UITableViewController,addItemDelegate {
             item.content = content
             item.beginDate = beginDate
             item.finish = false
-            items2.append(item)
+            items2.insert(item, at: 0)
             do{
                 try manageDatabase.save()
             }
@@ -145,32 +184,33 @@ class thirdTableViewController: UITableViewController,addItemDelegate {
             cell.datetitle.text = formatter.string(from: myDate!)
             cell.content.text = items[indexPath.row].content
         }
+        cell.delegate = self
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var item:Todolist?
-        if indexPath.section == 0{
-            item = items2[indexPath.row]
-        }
-        else{
-            item = items[indexPath.row]
-        }
-        if item?.finish == false{
-            item?.finish = true
-        }
-        else{
-            item?.finish = false
-        }
-        do{
-            try manageDatabase.save()
-        }
-        catch{
-            print("\(error)")
-        }
-        fetchAllItems()
-        tableView.reloadData()
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        var item:Todolist?
+//        if indexPath.section == 0{
+//            item = items2[indexPath.row]
+//        }
+//        else{
+//            item = items[indexPath.row]
+//        }
+//        if item?.finish == false{
+//            item?.finish = true
+//        }
+//        else{
+//            item?.finish = false
+//        }
+//        do{
+//            try manageDatabase.save()
+//        }
+//        catch{
+//            print("\(error)")
+//        }
+//        fetchAllItems()
+//        tableView.reloadData()
+//    }
     
     
     
@@ -242,11 +282,18 @@ class CCell: UITableViewCell{
     @IBOutlet weak var datetitle: UILabel!
     @IBOutlet weak var content: UILabel!
     
+    weak var delegate:cellDelegate?
+    
+    @IBAction func swithButtonPressed(_ sender: UIButton) {
+        delegate?.switchSection(self)
+    }
+    
 }
 
 
-
-
+protocol cellDelegate:class {
+    func switchSection(_ sender:CCell)
+}
 
 
 

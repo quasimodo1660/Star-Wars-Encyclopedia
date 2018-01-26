@@ -406,18 +406,29 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vf5-h4-Xfm" userLabel="contentLabel">
-                                            <rect key="frame" x="24" y="31" width="327" height="41"/>
+                                            <rect key="frame" x="24" y="31" width="285" height="41"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQ2-NK-7He">
+                                            <rect key="frame" x="309" y="36" width="50" height="30"/>
+                                            <state key="normal" title="Swith"/>
+                                            <connections>
+                                                <action selector="swithButtonPressed:" destination="pwC-1d-bx4" eventType="touchUpInside" id="RMz-Nt-DJA"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ffW-GZ-AZ3" firstAttribute="centerY" secondItem="hjA-kl-XUo" secondAttribute="centerY" id="27K-hc-Mgz"/>
+                                        <constraint firstItem="TQ2-NK-7He" firstAttribute="top" secondItem="ffW-GZ-AZ3" secondAttribute="bottom" constant="10" id="4Rn-Pk-61b"/>
                                         <constraint firstItem="vf5-h4-Xfm" firstAttribute="leading" secondItem="1q4-Ts-OPJ" secondAttribute="leadingMargin" constant="8" id="AVn-ez-8fL"/>
                                         <constraint firstItem="hjA-kl-XUo" firstAttribute="leading" secondItem="1q4-Ts-OPJ" secondAttribute="leading" constant="24" id="COv-0g-dk0"/>
+                                        <constraint firstItem="TQ2-NK-7He" firstAttribute="leading" secondItem="vf5-h4-Xfm" secondAttribute="trailing" id="CuS-5y-HpD"/>
+                                        <constraint firstItem="TQ2-NK-7He" firstAttribute="trailing" secondItem="1q4-Ts-OPJ" secondAttribute="trailingMargin" id="FT3-Rm-XAw"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="TQ2-NK-7He" secondAttribute="bottom" constant="13" id="P6k-Qy-fjJ"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vf5-h4-Xfm" secondAttribute="bottom" constant="7.5" id="WQr-UU-SAe"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="vf5-h4-Xfm" secondAttribute="trailing" constant="8" id="WZR-Rb-7AL"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vf5-h4-Xfm" secondAttribute="trailing" constant="50" id="WZR-Rb-7AL"/>
                                         <constraint firstAttribute="trailing" secondItem="ffW-GZ-AZ3" secondAttribute="trailing" constant="24" id="YaD-yc-reX"/>
                                         <constraint firstItem="hjA-kl-XUo" firstAttribute="top" secondItem="1q4-Ts-OPJ" secondAttribute="top" constant="5" id="cv5-YQ-eds"/>
                                         <constraint firstItem="ffW-GZ-AZ3" firstAttribute="top" secondItem="1q4-Ts-OPJ" secondAttribute="top" constant="5" id="dqO-Zs-E2N"/>
@@ -443,7 +454,11 @@
                                     <segue destination="UMo-KZ-Vo4" kind="presentation" identifier="addItem" id="4Ou-8C-uws"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Swith" id="OfF-Y2-8Z8"/>
+                            <barButtonItem title="Swith" id="OfF-Y2-8Z8">
+                                <connections>
+                                    <action selector="swichButtonPressed:" destination="Xvb-dM-Mhf" id="dwM-iz-YHJ"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
